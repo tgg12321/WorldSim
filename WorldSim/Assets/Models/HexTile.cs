@@ -3,6 +3,7 @@ using System.Collections;
 
 public class HexTile{
 	public Sprite sprite;
+	public HexTile NW_NEIGHBOR, NE_NEIGHBOR, E_NEIGHBOR, SE_NEIGHBOR, W_NEIGHBOR, SW_NEIGHBOR;
 	int worldXCoord, worldYCoord;
 	float unityXCoord, unityYCoord;
 
@@ -37,8 +38,12 @@ public class HexTile{
 		unityXCoord = ux;
 		unityYCoord = uy;
 
+	}
 
+	public HexTile(string edge){
 
+		type = edge;
+	
 	}
 
 	TileType randomizeTile(){
@@ -93,9 +98,50 @@ public class HexTile{
 
 
 	public string tileTypeToString(){
+
+	
 		string strType = type.ToString ();
 		strType=strType.Replace ("_", " ");
 		return strType;
+
+	}
+
+
+
+
+	public void setNeighbor(string direc, HexTile hex){
+		switch (direc) {
+		case "NW":
+			NW_NEIGHBOR = hex;
+			return;
+		case "W":
+			W_NEIGHBOR = hex;
+			return;
+		case "SW":
+			SW_NEIGHBOR = hex;
+			return;
+		case "E":
+			E_NEIGHBOR = hex;
+			return;
+		case "SE":
+			SW_NEIGHBOR = hex;
+			return;
+		case "NE":
+			NE_NEIGHBOR = hex;
+			return;
+
+
+
+		}
+
+
+	}
+
+
+
+
+	override public string  ToString(){
+		return "" + worldXCoord + "_" + worldYCoord + " " + type;
 	}
 
 }

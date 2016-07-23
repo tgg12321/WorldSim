@@ -19,17 +19,17 @@ public class WorldController : MonoBehaviour {
 
 
 
-
-
 		hexView = new HexTileView (spriteList);
 		world = new World ();
 		foreach (HexTile hex in world.map) {
-			
+
 			GameObject hex_go =(GameObject)Instantiate (HexPrefab, new Vector3 (hex.UnityXCoord, hex.UnityYCoord, 0), Quaternion.identity);
 			hex_go.name = "Hex_" + hex.WorldXCoord + "_" + hex.WorldYCoord;
 			hex_go.GetComponent<SpriteRenderer> ().sprite = hexView.getSprite (hex.Type);
 			hex_go.GetComponent<HexReference> ().HexRef = hex;
+
 		}
+
 
 
 	}
@@ -41,6 +41,8 @@ public class WorldController : MonoBehaviour {
 
 	public void updateSelectedObject(GameObject ob){
 		selectedObject = ob;
+		if (ob.GetComponent<HexReference> ().HexRef.E_NEIGHBOR.ToString () != null)
+			Debug.Log(ob.GetComponent<HexReference> ().HexRef.E_NEIGHBOR.ToString ());
 		updateRegionDesc ();
 	}
 
@@ -56,9 +58,6 @@ public class WorldController : MonoBehaviour {
 
 	public void updateRegionDesc(){
 			UI_tileTypeText.GetComponent<Text> ().text=selectedObject.GetComponent<HexReference> ().HexRef.tileTypeToString();
-			
-
-
 
 	}
 
@@ -69,4 +68,9 @@ public class WorldController : MonoBehaviour {
 		UI_Prospects_Possible = GameObject.Find ("Prospects_Possible");
 		UI_Prospects_Unlikely= GameObject.Find ("Prospects_Unlikely");
 	}
+
+
+	
+
+
 }

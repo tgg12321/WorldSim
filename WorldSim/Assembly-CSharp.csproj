@@ -51,6 +51,7 @@
      <Compile Include="Assets\Data\HexReference.cs" />
      <Compile Include="Assets\Data\TileType.cs" />
      <Compile Include="Assets\Models\HexTile.cs" />
+     <Compile Include="Assets\Models\Region.cs" />
      <Compile Include="Assets\Models\World.cs" />
      <Compile Include="Assets\View\HexTileView.cs" />
  <Reference Include="UnityEngine.UI">
