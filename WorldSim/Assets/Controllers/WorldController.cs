@@ -9,8 +9,18 @@ public class WorldController : MonoBehaviour {
 	public GameObject HexPrefab;
 	public Sprite[] spriteList;
 
+
+	GameObject UI_tileTypeText, UI_Prospects_Likely, UI_Prospects_Unlikely, UI_Prospects_Possible, UI_RegionViewButton;
+
 	public GameObject selectedObject;
 	void Start () {
+		initializeUIReferences ();
+
+
+
+
+
+
 		hexView = new HexTileView (spriteList);
 		world = new World ();
 		foreach (HexTile hex in world.map) {
@@ -31,15 +41,32 @@ public class WorldController : MonoBehaviour {
 
 	public void updateSelectedObject(GameObject ob){
 		selectedObject = ob;
+		updateRegionDesc ();
 	}
 
 	public void regionViewSelected(){
 		if (selectedObject != null) {
 			
-			GameObject tileTypeOb= GameObject.FindWithTag ("TileTypeText");
 
-			tileTypeOb.GetComponent<Text> ().text=selectedObject.GetComponent<HexReference> ().HexRef.tileTypeToString();
+
+		
 
 		}
-	}	
+	}
+
+	public void updateRegionDesc(){
+			UI_tileTypeText.GetComponent<Text> ().text=selectedObject.GetComponent<HexReference> ().HexRef.tileTypeToString();
+			
+
+
+
+	}
+
+
+	public void initializeUIReferences(){
+		UI_tileTypeText = GameObject.Find ("TileTypeText");
+		UI_Prospects_Likely = GameObject.Find ("Prospects_Likely");
+		UI_Prospects_Possible = GameObject.Find ("Prospects_Possible");
+		UI_Prospects_Unlikely= GameObject.Find ("Prospects_Unlikely");
+	}
 }

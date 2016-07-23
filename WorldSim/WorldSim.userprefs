@@ -2,21 +2,18 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Models\HexTile.cs">
     <Files>
-      <File FileName="Assets\Controllers\MouseController.cs" Line="67" Column="4" />
-      <File FileName="Assets\Controllers\WorldController.cs" Line="39" Column="67" />
-      <File FileName="Assets\Data\TileType.cs" Line="10" Column="1" />
-      <File FileName="Assets\Data\HexReference.cs" Line="1" Column="1" />
       <File FileName="Assets\Models\World.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\HexTile.cs" Line="95" Column="35" />
+      <File FileName="Assets\Controllers\MouseController.cs" Line="67" Column="4" />
+      <File FileName="Assets\Controllers\WorldController.cs" Line="58" Column="106" />
+      <File FileName="Assets\Data\TileType.cs" Line="4" Column="1" />
+      <File FileName="Assets\Data\HexReference.cs" Line="1" Column="1" />
+      <File FileName="Assets\Models\HexTile.cs" Line="102" Column="1" />
       <File FileName="Assets\View\HexTileView.cs" Line="1" Column="1" />
       <File FileName="Assets\ChangeText.cs" Line="6" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <RunToCursorBreakpoint file="C:\Users\tgg12_000\Desktop\Unity\WorldSim\Assets\Controllers\WorldController.cs" line="42" column="1" />
-      <RunToCursorBreakpoint file="C:\Users\tgg12_000\Desktop\Unity\WorldSim\Assets\Controllers\WorldController.cs" line="42" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

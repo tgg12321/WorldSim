@@ -93,8 +93,9 @@ public class HexTile{
 
 
 	public string tileTypeToString(){
-		return type.ToString ();
-
+		string strType = type.ToString ();
+		strType=strType.Replace ("_", " ");
+		return strType;
 	}
 
 }
