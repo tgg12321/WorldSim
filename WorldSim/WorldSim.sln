@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{44F86B7F-1027-9135-5B12-98593BBEE9B3}") = "WorldSim", "Assembly-CSharp.csproj", "{F7091328-81F1-2F15-161C-CB97FB464B94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F7091328-81F1-2F15-161C-CB97FB464B94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7091328-81F1-2F15-161C-CB97FB464B94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7091328-81F1-2F15-161C-CB97FB464B94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7091328-81F1-2F15-161C-CB97FB464B94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
