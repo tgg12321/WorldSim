@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class WorldController : MonoBehaviour {
 
 	World world;
+	GameObject[,] goWorldMap;
 	public Canvas canvas;
 	public HexTileView hexView;
 	public GameObject HexPrefab;
@@ -14,16 +15,15 @@ public class WorldController : MonoBehaviour {
 
 	public GameObject selectedObject;
 	void Start () {
+		
 		initializeUIReferences ();
-
-
-
-
 		hexView = new HexTileView (spriteList);
 		world = new World ();
+		goWorldMap = new GameObject[world.width, world.height];
 		foreach (HexTile hex in world.map) {
 
 			GameObject hex_go =(GameObject)Instantiate (HexPrefab, new Vector3 (hex.UnityXCoord, hex.UnityYCoord, 0), Quaternion.identity);
+			goWorldMap [hex.WorldXCoord, hex.WorldYCoord] = hex_go;
 			hex_go.name = "Hex_" + hex.WorldXCoord + "_" + hex.WorldYCoord;
 			hex_go.GetComponent<SpriteRenderer> ().sprite = hexView.getSprite (hex.Type);
 			hex_go.GetComponent<HexReference> ().HexRef = hex;
@@ -41,17 +41,14 @@ public class WorldController : MonoBehaviour {
 
 	public void updateSelectedObject(GameObject ob){
 		selectedObject = ob;
-		if (ob.GetComponent<HexReference> ().HexRef.E_NEIGHBOR.ToString () != null)
-			Debug.Log(ob.GetComponent<HexReference> ().HexRef.E_NEIGHBOR.ToString ());
 		updateRegionDesc ();
 	}
 
 	public void regionViewSelected(){
 		if (selectedObject != null) {
-			
+			world.iterateGeneration ();
+			refreshMap ();
 
-
-		
 
 		}
 	}
@@ -61,6 +58,21 @@ public class WorldController : MonoBehaviour {
 
 	}
 
+
+	public void refreshGO(GameObject go){
+		go.GetComponent<HexReference> ().HexRef.sprite = hexView.getSprite (go.GetComponent<HexReference>().HexRef.Type);
+		go.GetComponent<SpriteRenderer> ().sprite = go.GetComponent<HexReference>().HexRef.sprite;
+
+	}
+
+
+	public void refreshMap(){
+		foreach (GameObject go in goWorldMap) {
+
+			refreshGO (go);
+		}
+
+	}
 
 	public void initializeUIReferences(){
 		UI_tileTypeText = GameObject.Find ("TileTypeText");

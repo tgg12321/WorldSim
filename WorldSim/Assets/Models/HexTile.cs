@@ -40,14 +40,10 @@ public class HexTile{
 
 	}
 
-	public HexTile(string edge){
 
-		type = edge;
-	
-	}
 
 	TileType randomizeTile(){
-		int r= Random.Range (0, 8);
+		int r= Random.Range (0, 6);
 	
 		switch (r) {
 
@@ -63,10 +59,8 @@ public class HexTile{
 			return TileType.Mountain;
 		case 5:
 			return TileType.Deep_Ocean;
-		case 6:
-			return TileType.Deep_Ocean;
-		case 7:
-			return TileType.Deep_Ocean;
+		
+		
 		}
 		Debug.Log ("Range finding error, rolled: " + r);
 		return TileType.Void;
@@ -138,7 +132,62 @@ public class HexTile{
 	}
 
 
+	public void setNeighborsToSelf(int chance){
 
+		for (int i = 0; i < 5; i++) {
+			int r= Random.Range(1, chance+1);
+
+			if (r == chance) {
+
+				changeNeighborTile (i);
+
+			}
+		}
+
+	}
+
+	void changeNeighborTile(int i){
+		
+		switch (i) {
+		case 0:
+			if (NE_NEIGHBOR != null) {
+				
+				NE_NEIGHBOR.Type = type;
+			}
+			break;
+		case 1:
+			if (E_NEIGHBOR != null) {
+				E_NEIGHBOR.Type = type;
+
+			}
+			break;
+		case 2:
+			if (SE_NEIGHBOR != null) {
+				SE_NEIGHBOR.Type = type;
+			}
+			break;
+		case 3:
+			if (SW_NEIGHBOR != null) {
+				SW_NEIGHBOR.Type = type;
+			}
+			break;
+		case 4:
+			if (W_NEIGHBOR != null) {
+				W_NEIGHBOR.Type = type;
+			}
+			break;
+		case 5:
+			if (NW_NEIGHBOR != null) {
+				NW_NEIGHBOR.Type = type;
+			}
+			break;
+
+
+		}
+
+
+
+	}
 
 	override public string  ToString(){
 		return "" + worldXCoord + "_" + worldYCoord + " " + type;

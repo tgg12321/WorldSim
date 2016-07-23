@@ -32,9 +32,30 @@ public class World{
 		}
 		fillHexNeighbors ();
 
+		iterateGeneration ();
 
 	}
 			
+
+	public void iterateGeneration (){
+		
+		foreach (HexTile hex in map) {
+			if (hex.Type.Equals (TileType.Deep_Ocean)) {
+				hex.setNeighborsToSelf (4);
+			} else {
+				hex.setNeighborsToSelf (6);
+			}
+		}
+
+
+	}
+
+
+
+
+
+
+
 
 
 
